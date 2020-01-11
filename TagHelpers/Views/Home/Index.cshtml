@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+    List<string> liste = new List<string>() {"Telefon","Tablet","Bilgisayar"};
+}
+<div class="m-1 p-1">
+    <div class="row">
+        <div class="col-3">
+            <ul items="@liste"></ul>
+        </div>
+        <div class="col-9">
+            <table class="table table-bordered table-striped table-sm">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr>
+                        <th>@item.ProductId</th>
+                        <th>@item.ProductName</th>
+                        <th>@item.Price</th>
+                        <th></th>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="btn btn-primary" 
+                    asp-action="Create" 
+                    asp-controller="Home">Create</a>
+            <formbutton type="submit" bg-color="danger"></formbutton>
+            <formbutton type="reset"></formbutton>
+        </div>
+    </div>
+</div>
